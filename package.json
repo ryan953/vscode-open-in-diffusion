@@ -1,0 +1,60 @@
+{
+  "name": "vscode-open-in-diffusion",
+  "displayName": "Open In Diffusion",
+  "description": "Open the currnet file in your diffusion web UI",
+  "repository": "https://github.com/ryan953/vscode-open-in-diffusion",
+  "version": "0.0.0",
+  "publisher": "ryan953",
+  "engines": {
+    "vscode": "^1.34.0"
+  },
+  "extensionKind": "workspace",
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:open-in-diffusion.copy-phabricator-url",
+    "onCommand:open-in-diffusion.open-in-phabricator"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Open In Diffusion",
+      "properties": {
+        "open-in-diffusion.defaults.conduit-host": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "defaullt": null,
+          "format": "uri",
+          "scope": "application",
+          "markdownDescription": "URL to the phabricator instance."
+        },
+        "open-in-diffusion.defaults.conduit-token": {
+          "type": ["string", "null"],
+          "default": null,
+          "pattern": "^(api|cli)-[a-z1-9]{28}$",
+          "scope": "application",
+          "markdownDescription": "Get a Standard API Token from https://phabricator.example.com/settings and clicking on \"Conduit API Tokens\"."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "open-in-diffusion.copy-phabricator-url",
+        "title": "Open In Diffusion: Copy Phabricator URL"
+      },
+      {
+        "command": "open-in-diffusion.open-in-phabricator",
+        "title": "Open In Diffusion: Open in Phabricator"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "@types/node": "^8.10.25",
+    "@types/vscode": "^1.34.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  }
+}
