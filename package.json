@@ -8,7 +8,7 @@
   "engines": {
     "vscode": "^1.34.0"
   },
-  "extensionKind": "workspace",
+  "extensionKind": ["workspace"],
   "main": "./extension.js",
   "activationEvents": [
     "onCommand:open-in-diffusion.copy-phabricator-url",
