@@ -10,12 +10,12 @@ You can alternativly run the "Open In Diffusion: Copy Phabricator URL" command t
 
 Are you a Visual Studio Code user with some repositories hosted by phabricator? Then this is a plugin for you!
 
-For the URL commands to be successful add the repository as a folder in the current vscode workspace.
-Open In Diffusion works best when you've added your whole project folder as a folder in the workspace. If you're code is in the path `~/code/my-project` then you can add either `~/code/my-project` or all of `~/code` to the workspace.
+For the commands to work: add the repository as a folder in the current vscode workspace.
+Open In Diffusion works best when you've added your whole project as a folder in the workspace. For example, if your project is `~/code/my-project` then add either `~/code/my-project` or all of `~/code` to the workspace.
 
 Working with multiple repositories within the same workspace is supported.
 
-This extension relies on reading the `.arcconfig` file thats been committed to the root of your repository. The config must include the fields `phabricator.uri` and `repository.callsign`:
+This extension relies on an `.arcconfig` file. It should be committed to the root of your repository. For example: `~/code/my-project/.arcconfig`. The config must include the fields `phabricator.uri` and `repository.callsign`:
 
 ```
 {
@@ -33,7 +33,7 @@ Open an issue or pull request on [github](https://github.com/ryan953/vscode-open
 
 ```
 npx vsce login
-npm vsce publish -p major|minor|patch
+npx vsce publish -p major|minor|patch
 git push origin
 ```
 
