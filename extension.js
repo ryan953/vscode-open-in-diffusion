@@ -6,8 +6,8 @@ async function getRepoRootOfFile(workspace, document) {
   const foundFiles = await workspace.findFiles('**/.arcconfig');
   const argconfigDirs = foundFiles
     .map((file) => file.path.replace(/\/.arcconfig$/, ''))
-    .filter((dir) => document.uri.path.startsWith(dir))
-  argconfigDirs.sort((a, b) => a.split('/').length - b.split('/').length)
+    .filter((dir) => document.uri.path.startsWith(dir));
+  argconfigDirs.sort((a, b) => a.split('/').length - b.split('/').length);
   return argconfigDirs[0]; //pick the shortest number of segments (top of tree)
 }
 
@@ -46,7 +46,7 @@ function selectionToUrlRange(selection) {
 }
 
 async function assembleUrl(activeEditor, workspace) {
-  const repoRootPath = await getRepoRootOfFile(workspace, activeEditor.document)
+  const repoRootPath = await getRepoRootOfFile(workspace, activeEditor.document);
   const arcconfig = JSON.parse(await readFilePath(workspace, `${repoRootPath}/.arcconfig`));
   const domain = removeTrailingSlash(getDiffusionDomain(arcconfig));
   const callsign = removeLeadingSlash(removeTrailingSlash(getProjectCallsign(arcconfig)));
