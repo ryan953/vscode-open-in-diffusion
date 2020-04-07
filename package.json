@@ -3,7 +3,7 @@
   "displayName": "Open In Diffusion",
   "description": "Open the currnet file in your diffusion web UI",
   "repository": "https://github.com/ryan953/vscode-open-in-diffusion",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "publisher": "ryan953",
   "engines": {
     "vscode": "^1.34.0"
