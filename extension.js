@@ -36,7 +36,7 @@ function getProjectCallsign(arcconfig) {
 }
 
 function documentToProjectFile(document, rootPath) {
-  return document.fileName.replace(rootPath, '');
+  return vscode.Uri.file(document.fileName).path.replace(rootPath, '');
 }
 
 function selectionToUrlRange(selection) {
